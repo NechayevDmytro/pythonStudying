@@ -1,7 +1,10 @@
 # https://www.w3resource.com/python-exercises/python-basic-exercises.php
+import calendar
 import math
 import platform
 from datetime import datetime
+from calendar import Calendar
+from calendar import TextCalendar
 
 
 # 1. Write a Python program to print the following string in a specific format
@@ -76,4 +79,42 @@ def exercise_9(exam_st_date):
     print(formatted_date)
 
 
-exercise_9((11, 22, 2014))
+# 10. Write a Python program that accepts an integer (n) and computes the value of n+nn+nnn.
+def exercise_10(number):
+    once = str(number)
+    double = str(number) * 2
+    triple = str(number) * 3
+    print(int(once) + int(double) + int(triple))
+
+
+# 12. Write a Python program that prints the calendar for a given month and year.
+def exercise_12(year, month):
+    it = Calendar().monthdayscalendar(year, month)
+    m = calendar.month_name[month]
+    print('    ', m, year)
+    for week in it:
+        for day in week:
+            if day == 0:
+                print("  ", end=" ")
+            else:
+                formatted_day = " " + str(day) if len(str(day)) == 1 else str(day)
+                print(formatted_day, end=" ")
+        print()
+
+
+# 12+. Write a Python program that prints the calendar for a given year.
+def exercise_12_2(year):
+    year = TextCalendar().formatyear(year)
+    print(year)
+
+
+# 14. Write a Python program to calculate the number of days between two dates.
+def exercise_14(from_date, to_date):
+    date_1 = datetime(from_date[0], from_date[1], from_date[2])
+    date_2 = datetime(to_date[0], to_date[1], to_date[2])
+    delta = date_1.__sub__(date_2).days
+    day_word = 'day.' if abs(delta) <= 1 else 'days.'
+    print(f'The difference is {abs(delta)} {day_word}')
+
+
+exercise_14((2014, 7, 2), (2014, 7, 10))
