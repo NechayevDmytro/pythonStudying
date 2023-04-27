@@ -15,9 +15,9 @@ class House:
         window_str = 'window' if self.windows == 1 else 'windows'
         is_or_are = 'is' if self.houses == 1 else 'are'
         house_str = 'house' if self.houses == 1 else 'houses'
-        return f'There {is_or_are} {self.houses} {house_str} with {self.doors} {door_str} '\
-               f'and {self.windows} {window_str}. '\
-            f'Total square of doors and windows is: {self.get_total_doors_and_windows_square()}'
+        return (f'There {is_or_are} {self.houses} {house_str} with {self.doors} {door_str} '
+                f'and {self.windows} {window_str}. '
+                f'Total square of doors and windows is: {self.get_total_doors_and_windows_square()}')
 
 
 house1 = House()
